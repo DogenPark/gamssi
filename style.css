@@ -233,7 +233,7 @@ ul{ margin: 10px 0 0; padding-left: 18px; color: var(--muted); }
   position: absolute;
   inset: 0;
   background: rgba(0,0,0,.65);
-  backdrop-filter: blur(6px);
+  backdrop-filter:none;
 }
 
 .modal-panel{
@@ -466,7 +466,6 @@ ul{ margin: 10px 0 0; padding-left: 18px; color: var(--muted); }
     transparent 55%);
   opacity:.55;
   pointer-events:none;
-  mix-blend-mode: screen;
 }
 
 /* ===== 핵심: CSS로 '앞쪽일 때' 더 선명하게 보이게 만드는 트릭 =====
@@ -474,19 +473,7 @@ ul{ margin: 10px 0 0; padding-left: 18px; color: var(--muted); }
    사용자 체감상 거의 동일하게 만드는 방법: ring에 '페이드 마스크'를 줘서
    뒤쪽이 자동으로 어둡고 흐려 보이게 만든다.
 */
-.rotator{
-  /* 앞면이 밝고, 뒤로 갈수록 자연스럽게 어두워지게 */
-  mask-image: radial-gradient(circle at 50% 50%,
-    rgba(0,0,0,1) 0%,
-    rgba(0,0,0,1) 55%,
-    rgba(0,0,0,.35) 75%,
-    rgba(0,0,0,.0) 95%);
-  -webkit-mask-image: radial-gradient(circle at 50% 50%,
-    rgba(0,0,0,1) 0%,
-    rgba(0,0,0,1) 55%,
-    rgba(0,0,0,.35) 75%,
-    rgba(0,0,0,.0) 95%);
-}
+
 
 /* 클릭/감상 편하게: hover했을 때는 전체가 조금 더 또렷해짐 */
 .rotator:hover .card{
@@ -666,5 +653,108 @@ ul{ margin: 10px 0 0; padding-left: 18px; color: var(--muted); }
 }
 /* 모바일에서 가로 스와이프(회전) 하되, 세로 스크롤은 유지 */
 #rotator{ touch-action: pan-y; }
+
+/* ===== Blog ===== */
+.blog-tools{
+  margin-top: 10px;
+  display: grid;
+  gap: 10px;
+}
+
+.blog-search{
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  color: inherit;
+}
+
+.blog-tags{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag{
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.20);
+  color: rgba(255,255,255,.85);
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.tag.is-active{
+  border-color: rgba(168,85,247,.45);
+  background: rgba(168,85,247,.14);
+}
+
+.blog-list{
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.post{
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.05);
+  box-shadow: 0 12px 36px rgba(0,0,0,.32);
+  display: grid;
+}
+
+.post-thumb img{
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display:block;
+}
+
+.post-body{
+  padding: 12px 12px 14px;
+  display:grid;
+  gap: 8px;
+}
+
+.post-meta{
+  display:flex;
+  gap: 8px;
+  align-items:center;
+  color: rgba(255,255,255,.65);
+  font-size: 13px;
+}
+
+.post-badge{
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(168,85,247,.35);
+  background: rgba(168,85,247,.12);
+  color: rgba(255,255,255,.85);
+}
+
+.post-title{
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.post-desc{
+  margin: 0;
+  color: rgba(255,255,255,.72);
+  line-height: 1.55;
+}
+
+.blog-more{
+  margin-top: 14px;
+  display:flex;
+  justify-content:center;
+}
+
+@media (max-width: 900px){
+  .blog-list{ grid-template-columns: 1fr; }
+}
   
 

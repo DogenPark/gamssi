@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gamssi-Biscuit Portfolio</title>
+  <title>Gamssi-Biscuit's Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,7 +13,8 @@
       <a class="logo" href="#top">Gamssi-Biscuit</a>
       <nav class="menu">
         <a href="#portfolio">Online Gallery</a>
-        <a href="#about">Gamssi-Biscuit작가의 대하여</a>
+        <a href="#blog">Blog</a>
+        <a href="#about">Gamssi-Biscuit작가에 대하여</a>
         <a href="#contact">문의하기</a>
       </nav>
     </div>
@@ -29,7 +30,7 @@
           <a class="btn" href="#portfolio">Online Gallery</a>
         </div>
         <div class="hero-img">
-          <img src="images/hero.jpg" alt="대표 작품" />
+          <img src="images/hero.jpg" alt="대표 작품" loading="lazy" />
         </div>
       </div>
     </section>
@@ -41,10 +42,10 @@
         <div class="rotator" id="rotator">
   <div class="rotator-ring">
             <a class="card"
-             href="images/work1.png" 
+             href="images/work1.jpg" 
              data-title="작품명 1"
              data-info="2025">
-            <img src="images/work1.png" alt="Work 1" />
+            <img src="images/work1.jpg" alt="Work 1" loading="lazy" />
             <div class="meta">
               <div class="title">작품명 1</div>
               <div class="info">2025</div>
@@ -52,10 +53,10 @@
           </a>
 
              <a class="card"
-             href="images/work2.png" 
+             href="images/work2.webp" 
              data-title="작품명 2"
              data-info="2024">
-            <img src="images/work2.png" alt="Work 2" />
+            <img src="images/work2.webp" alt="Work 2" loading="lazy" />
             <div class="meta">
               <div class="title">작품명 2</div>
               <div class="info">2024</div>
@@ -63,10 +64,10 @@
           </a>
 
              <a class="card"
-             href="images/work3.png" 
+             href="images/work3.webp" 
              data-title="작품명 3"
              data-info="2024">
-            <img src="images/work3.png" alt="Work 3" />
+            <img src="images/work3.webp" alt="Work 3" loading="lazy" />
             <div class="meta">
               <div class="title">작품명 3</div>
               <div class="info">2024</div>
@@ -74,10 +75,10 @@
           </a>
 
                <a class="card"
-             href="images/work4.png" 
+             href="images/work4.webp" 
              data-title="작품명 4"
              data-info="2024">
-            <img src="images/work4.png" alt="Work 4" />
+            <img src="images/work4.webp" alt="Work 4" loading="lazy" />
             <div class="meta">
               <div class="title">작품명 4</div>
               <div class="info">2024</div>
@@ -85,10 +86,10 @@
           </a>
 
                      <a class="card"
-             href="images/work5.png" 
+             href="images/work5.webp" 
              data-title="작품명 5"
              data-info="2024">
-            <img src="images/work5.png" alt="Work 5" />
+            <img src="images/work5.webp" alt="Work 5" loading="lazy" />
             <div class="meta">
               <div class="title">작품명 5</div>
               <div class="info">2024</div>
@@ -96,10 +97,10 @@
           </a> 
 
                        <a class="card"
-             href="images/work6.png" 
+             href="images/work6.webp" 
              data-title="작품명 6"
              data-info="2024">
-            <img src="images/work6.png" alt="Work 6" />
+            <img src="images/work6.webp" alt="Work 6" loading="lazy" />
             <div class="meta">
               <div class="title">작품명 6</div>
               <div class="info">2024</div>
@@ -107,10 +108,10 @@
           </a> 
 
                        <a class="card"
-             href="images/work7.png" 
+             href="images/work7.webp" 
              data-title="작품명 7"
              data-info="2024">
-            <img src="images/work7.png" alt="Work 7" />
+            <img src="images/work7.webp" alt="Work 7" loading="lazy" />
             <div class="meta">
               <div class="title">작품명 7</div>
               <div class="info">2024</div>
@@ -118,10 +119,10 @@
           </a>
 
    <a class="card"
-             href="images/work8.png" 
+             href="images/work8.webp" 
              data-title="작품명 8"
              data-info="2024">
-            <img src="images/work8.png" alt="Work 8" />
+            <img src="images/work8.webp" alt="Work 8" loading="lazy" />
             <div class="meta">
               <div class="title">작품명 8</div>
               <div class="info">2024</div>
@@ -129,10 +130,10 @@
           </a>
 
              <a class="card"
-             href="images/work9.png" 
+             href="images/work9.webp" 
              data-title="작품명 9"
              data-info="2023">
-            <img src="images/work9.png" alt="Work 9" />
+            <img src="images/work9.webp" alt="Work 9" loading="lazy" />
             <div class="meta">
               <div class="title">작품명 9</div>
               <div class="info">2023</div>
@@ -142,7 +143,74 @@
       </div>
       </div>
     </section>
+<section id="blog" class="section blog">
+  <div class="container">
+    <h2>Blog</h2>
+    <p class="desc">작품 업데이트와 작업 노트를 기록합니다. (그림+소개를 계속 추가 가능)</p>
 
+    <!-- (선택) 검색/태그 -->
+    <div class="blog-tools">
+      <input id="blogSearch" class="blog-search" type="search" placeholder="검색: 제목/설명" />
+      <div class="blog-tags" id="blogTags">
+        <button class="tag is-active" data-tag="all" type="button">전체</button>
+        <button class="tag" data-tag="work" type="button">작품</button>
+        <button class="tag" data-tag="wip" type="button">작업과정</button>
+        <button class="tag" data-tag="note" type="button">노트</button>
+      </div>
+    </div>
+
+    <!-- 게시글 리스트 -->
+    <div class="blog-list" id="blogList">
+
+      <!-- ✅ 글 추가 방법: 아래 article 하나를 복사해서 붙여넣고 내용만 바꾸면 됨 -->
+      <article class="post" data-tags="work">
+        <a class="post-thumb js-modal" href="images/blog-001.jpg"
+           data-full="images/blog-001.jpg"
+           data-title="Good Bye!2025"
+           data-info="2025.12.28 · 작품">
+          <img src="images/blog-001.jpg" alt="Good Bye!2025" loading="lazy" />
+        </a>
+
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="post-date">2026.02.04</span>
+            <span class="post-badge">작품</span>
+          </div>
+          <h3 class="post-title">Good Bye!2025</h3>
+          <p class="post-desc">
+            푸른뱀은 아니지만...송년을 기념하며
+          </p>
+        </div>
+      </article>
+
+      <article class="post" data-tags="work">
+        <a class="post-thumb js-modal" href="images/blog-002.jpg"
+           data-full="images/blog-002.jpg"
+           data-title="Happy New Year!2026"
+           data-info="2025.12.31 · 작품">
+          <img src="images/blog-002.jpg" alt="Happy New Year!2026" loading="lazy" />
+        </a>
+
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="post-date">2025.12.31</span>
+            <span class="post-badge">작품</span>
+          </div>
+          <h3 class="post-title">Happy New Year!2026</h3>
+          <p class="post-desc">
+            새해 복 많이 받으세요! 전 착한 어른이라 제야의 종소리는 못듣고 자요. 어쨋건,이번 2026년 붉은 말의 해는 듀라한이 함께합니다!
+          </p>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- 더보기 버튼 (선택) -->
+    <div class="blog-more">
+      <button class="btn" id="blogMoreBtn" type="button">더보기</button>
+    </div>
+  </div>
+</section>
    <section id="about" class="section about">
   <div class="container">
     <h2><Gamssi-Biscuit></Gamssi-Biscuit> 작가에 대하여</h2>
@@ -157,7 +225,7 @@
 
         <div class="about-info">
           <div class="about-name">
-            Gamssi-Buisket
+            Gamssi-Biscuit
             <span class="badge">Digital-Illustrator</span>
           </div>
 
@@ -187,8 +255,8 @@
           <div class="stat-label">Works Online</div>
         </div>
         <div class="stat">
-          <div class="stat-num">All</div>
-          <div class="stat-label">Ages & Genders</div>
+          <div class="stat-num"></div>
+          <div class="stat-label">Age & Gender</div>
           28 & female
         </div>
       </div>
@@ -198,8 +266,8 @@
     <div class="timeline">
       <article class="event">
         <img class="event-img js-modal"
-             src="images/about-2023.png"
-             data-full="images/about-2023.png"
+             src="images/about-2023.jpg"
+             data-full="images/about-2023.jpg"
              data-title="양평아신갤러리"
              data-info="2023.08.01 ~ 2023.08.15"
              alt="2023 양평아신갤러리 전시 사진">
@@ -244,7 +312,7 @@
         <h2>문의하기</h2>
         <p class="desc">
           이메일: <a href="mailto:you@example.com">you@example.com</a><br/>
-          Instagram: <a href="#" target="_blank" rel="noreferrer">@yourid</a><br/>
+          Instagram: <a href="#" target="_blank" rel="noreferrer">@Gamssi-Biscuit</a><br/>
           크레페: <a href="#" target="_blank" rel="noreferrer">@akdlxlakdltm</a>
         </p>
       </div>
@@ -422,6 +490,71 @@
     if (e.key === "ArrowLeft") showPrev();
     if (e.key === "ArrowRight") showNext();
   });
+
+  // ===== Blog filter + load more (optional) =====
+const blogList = document.getElementById("blogList");
+const blogSearch = document.getElementById("blogSearch");
+const blogTags = document.getElementById("blogTags");
+const blogMoreBtn = document.getElementById("blogMoreBtn");
+
+if (blogList) {
+  const posts = Array.from(blogList.querySelectorAll(".post"));
+  let activeTag = "all";
+  let visibleCount = 4; // 처음엔 4개만 보이게
+
+  function matches(post){
+    const q = (blogSearch?.value || "").trim().toLowerCase();
+    const text = (post.innerText || "").toLowerCase();
+    const tags = (post.dataset.tags || "").split(/\s+/);
+
+    const tagOk = (activeTag === "all") || tags.includes(activeTag);
+    const searchOk = !q || text.includes(q);
+
+    return tagOk && searchOk;
+  }
+
+  function render(){
+    let shown = 0;
+    posts.forEach(p => {
+      const ok = matches(p);
+      if (ok && shown < visibleCount) {
+        p.style.display = "";
+        shown++;
+      } else {
+        p.style.display = "none";
+      }
+    });
+
+    // 더보기 버튼 표시 여부
+    const remaining = posts.filter(p => matches(p)).length - shown;
+    if (blogMoreBtn) blogMoreBtn.style.display = remaining > 0 ? "" : "none";
+  }
+
+  // 태그 클릭
+  blogTags?.addEventListener("click", (e) => {
+    const btn = e.target.closest(".tag");
+    if (!btn) return;
+    activeTag = btn.dataset.tag || "all";
+    blogTags.querySelectorAll(".tag").forEach(t => t.classList.remove("is-active"));
+    btn.classList.add("is-active");
+    visibleCount = 4;
+    render();
+  });
+
+  // 검색
+  blogSearch?.addEventListener("input", () => {
+    visibleCount = 4;
+    render();
+  });
+
+  // 더보기
+  blogMoreBtn?.addEventListener("click", () => {
+    visibleCount += 4;
+    render();
+  });
+
+  render();
+}
 // ===== Mobile swipe to rotate (keep 3D carousel) =====
 let isDragging = false;
 let startX = 0;
