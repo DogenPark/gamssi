@@ -664,4 +664,7 @@ ul{ margin: 10px 0 0; padding-left: 18px; color: var(--muted); }
   .about-stats{ grid-template-columns: 1fr; }
   .event{ grid-template-columns: 1fr; }
 }
+/* 모바일에서 가로 스와이프(회전) 하되, 세로 스크롤은 유지 */
+#rotator{ touch-action: pan-y; }
+  
 

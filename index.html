@@ -422,7 +422,111 @@
     if (e.key === "ArrowLeft") showPrev();
     if (e.key === "ArrowRight") showNext();
   });
+// ===== Mobile swipe to rotate (keep 3D carousel) =====
+let isDragging = false;
+let startX = 0;
+let lastX = 0;
+let dragAccum = 0;
 
+// 현재 ring 회전 각도(도) 저장용
+let ringAngle = 0;
+
+// 카드 한 칸(step) 각도
+function getStepDeg() {
+  const n = cards.length || 1;
+  return 360 / n;
+}
+
+// currentIndex 기반으로 ringAngle 동기화
+function syncAngleToIndex() {
+  ringAngle = -currentIndex * getStepDeg();
+  ring.style.transform = `rotateY(${ringAngle}deg)`;
+}
+
+// 드래그 중엔 transition 끄고, 손 떼면 다시 켜기
+function setRingDragging(on) {
+  ring.style.transition = on ? "none" : "transform 900ms ease";
+}
+
+// “휙” 판정(픽셀)
+const SWIPE_PX = 60;
+
+// 드래그 감도(픽셀 -> 각도). 숫자 작을수록 더 많이 돌아감
+const DEG_PER_PX = 0.22;
+
+// 모바일/터치에서만 활성화(원하면 PC에서도 되게 할 수 있음)
+function isTouchDevice() {
+  return window.matchMedia("(pointer: coarse)").matches;
+}
+
+// 터치 시작
+function onPointerDown(e) {
+  if (!isTouchDevice()) return;
+
+  isDragging = true;
+  startX = e.clientX;
+  lastX = e.clientX;
+  dragAccum = 0;
+
+  // 자동 회전 멈춤
+  paused = true;
+  stop();
+
+  // 현재 각도 맞추고 드래그 모드
+  syncAngleToIndex();
+  setRingDragging(true);
+
+  // 포인터 캡처(드래그 안정)
+  rotator.setPointerCapture?.(e.pointerId);
+}
+
+// 터치 이동
+function onPointerMove(e) {
+  if (!isDragging) return;
+
+  const x = e.clientX;
+  const dx = x - lastX;
+  lastX = x;
+
+  dragAccum += (x - startX);
+
+  // dx만큼 각도 변경 (손가락 움직이면 바로 회전)
+  ringAngle += dx * DEG_PER_PX;
+  ring.style.transform = `rotateY(${ringAngle}deg)`;
+}
+
+// 터치 종료 -> 스냅(가까운 카드로)
+function onPointerUp(e) {
+  if (!isDragging) return;
+  isDragging = false;
+
+  setRingDragging(false);
+
+  const step = getStepDeg();
+
+  // dragAccum이 충분히 크면 “휙” 한 칸 넘김 우선
+  if (Math.abs(dragAccum) >= SWIPE_PX) {
+    // 왼쪽으로 밀면 다음(오른쪽으로 도는 느낌), 오른쪽으로 밀면 이전
+    if (dragAccum < 0) rotateTo(currentIndex + 1);
+    else rotateTo(currentIndex - 1);
+  } else {
+    // 휙이 아니면: 현재 각도에서 가장 가까운 카드로 스냅
+    // ringAngle = -index*step 근처를 찾는다
+    const approxIndex = Math.round(-ringAngle / step);
+    rotateTo(approxIndex);
+  }
+
+  // 자동회전 다시 켜기(원치 않으면 아래 3줄 삭제)
+  paused = false;
+  stop();
+  timer = setTimeout(loop, PAUSE_MS);
+}
+
+// 이벤트 등록
+rotator.addEventListener("pointerdown", onPointerDown);
+window.addEventListener("pointermove", onPointerMove);
+window.addEventListener("pointerup", onPointerUp);
+window.addEventListener("pointercancel", onPointerUp);
   
 </script>
 </body>
